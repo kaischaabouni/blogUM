@@ -87,6 +87,7 @@ class BlogController extends Controller {
 
         if ($form->isSubmitted() && $form->isValid()) {
             $post->setUrlAlias($slugger->slugify($post->getTitle()));
+            $post->setCompressedContent(substr($post->getContent(), 0, 120) . '...');
             $this->getDoctrine()->getManager()->flush();
 
             $this->addFlash('notice', 'Article modifié avec succès!');
