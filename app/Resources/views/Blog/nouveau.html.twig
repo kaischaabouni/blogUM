@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Nouveau post
+{% endblock %}
+
+{% block content %}
+    <div class="col-lg-8">
+        <div class="mt-4">
+            {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.title) }}
+                {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.content) }}
+                {{ form_widget(form.content, {'attr': {'class': 'form-control', 'rows': '12'}}) }}
+            </div>
+            {{ form_widget(form.save, {label: 'Publier', attr: {class: 'btn btn-primary'}}) }}  
+            {{ form_end(form) }}
+        </div>  
+    </div>  
+
+{% endblock %}

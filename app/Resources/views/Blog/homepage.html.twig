@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Accueil
+{% endblock %}
+
+{% block content %}
+
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+
+        <h1 class="my-4"> Accueil </h1>
+
+        {% for post in posts %}
+            <!-- Blog Post -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{post.title}}</h2>
+                    <p class="card-text">{{post.compressedContent}}</p>
+                    <a href="post/{{post.urlAlias}}" class="btn btn-primary">Lire la suite &rarr;</a>
+                    <a href="edit/{{post.urlAlias}}" class="btn btn-secondary">Éditer</a>
+                    <a href="supprimer/{{post.urlAlias}}" class="btn btn-danger">Supprimer</a>
+                </div>
+                <div class="card-footer text-muted">
+                    Publié le {{post.publishDate|date("d/m/Y")}} par <a href="#">Admin</a>
+                </div>
+            </div>
+        {% else %}
+            <div class="warning"> Pas de posts </div>
+        {% endfor %}
+
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center mb-4">
+            <li class="page-item">
+                <a class="page-link" href="#">&larr; Older</a>
+            </li>
+            <li class="page-item disabled">
+                <a class="page-link" href="#">Newer &rarr;</a>
+            </li>
+        </ul>
+
+    </div>
+
+
+
+
+
+
+{% endblock %}

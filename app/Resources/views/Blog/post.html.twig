@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{post.title}}
+{% endblock %}
+
+{% block content %}
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4">{{post.title}}</h1>
+
+        <!-- Author -->
+        <p class="lead"> par <a href="#">Admin</a> </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>Posted on January 1, 2017 at 12:00 PM</p>
+
+        <hr>
+
+        <!-- Post Content -->
+        <p class="lead">{{post.content}}</p>
+
+    </div>    
+{% endblock %}
